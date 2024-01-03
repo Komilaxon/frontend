@@ -1,0 +1,125 @@
+.user_hero {
+  position: relative;
+  padding-top: 37px;
+  background: var(--super-light-gray, #f7f6ff);
+}
+
+.user_hero_block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_hero_letf_box {
+  max-width: 645px;
+  padding-top: 100px;
+}
+
+.user_hero_category_name {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--orange, #fba457);
+  padding-bottom: 10px;
+}
+
+.user_hero_username {
+  color: #000;
+  font-size: 36px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+.user_hero_username span {
+  color: var(--green, #1dbf73);
+}
+
+.user_hero_text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  padding-bottom: 40px;
+}
+.user_hero_skills_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 60px;
+}
+.user_hero_skills_item {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--black, #222);
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid var(--light-gray, #f2f0fe);
+}
+
+.user_hero_info {
+  font-size: 18px;
+  font-weight: 500;
+  width: 100%;
+  color: #000;
+  padding: 15px 40px;
+  border-radius: 20px;
+  background-color: var(--light-gray, #f2f0fe);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+.user_hero_info_content {
+  height: 300px;
+}
+.user_hero_info_label {
+  color: #000;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* .user_hero_info_label::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-image: url(../../../assets/icons/projects.line.svg);
+  vertical-align: middle;
+} */
+
+.search_works_btn {
+  font-size: 16px;
+  font-weight: 500;
+  max-width: 200px;
+  padding: 10px 40px;
+  text-align: left;
+  color: var(--white, #f6fafd);
+  border-radius: 0px 50px 50px 0px;
+  background: var(--orange, #fba457);
+  position: absolute;
+  left: 0;
+  top: 20px;
+}
+
+.search_vektor {
+  width: 119px;
+  position: relative;
+  margin-left: -25px;
+}
+.search_vektor::after {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-image: url(../../../assets/icons/white.vektor.svg);
+  vertical-align: text-bottom;
+  margin-left: 10px;
+  position: absolute;
+  right: -25px;
+  top: 10px;
+}
+.info_list {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+

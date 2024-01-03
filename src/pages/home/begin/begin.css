@@ -1,0 +1,47 @@
+.begin {
+  background-repeat: no-repeat;
+  background-image: url(../../../assets//img//begin-img2.jpg);
+  background-size: cover;
+  background-color: linear-gradient(
+    180deg,
+    #e2a401 -1.38%,
+    #e6a901 17.18%,
+    #e3a401 28.99%,
+    #e5a800 43.17%,
+    #eeb301 77.27%,
+    #efb400 100%
+  );
+}
+
+.begin_title {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.48px;
+  color: var(--white, #f6fafd);
+  padding-top: 50px;
+  padding-bottom: 45px;
+}
+
+.begin_text {
+  color: var(--white, #f6fafd);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  padding: 50px 0;
+}
+
+.begin_btn {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.48px;
+  color: var(--white, #f6fafd);
+  padding: 20px 60px;
+  border-radius: 50px;
+  background-color: #5e4edb;
+  margin-bottom: 97px;
+}
+.begin_btn:hover {
+    background-color: #fff;
+    border:2px solid #5e4edb;
+    color: #5e4edb;
+}

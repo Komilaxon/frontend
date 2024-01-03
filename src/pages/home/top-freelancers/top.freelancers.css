@@ -1,0 +1,91 @@
+.top_title {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.48px;
+  color: var(--black, #222);
+  padding-bottom: 40px;
+}
+.top_list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.top_item {
+  max-width: 420px;
+  transition: all 0.4s ease;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid var(--light-gray, #f2f0fe);
+  cursor: pointer;
+}
+.top_item:hover {
+  box-shadow: 0px 16px 16px 0px rgba(34, 34, 34, 0.04);
+}
+.top_box {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding-bottom: 30px;
+}
+
+.top_img {
+  max-width: 150px;
+  margin-right: 32px;
+}
+.top_user_name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--black, #222);
+  padding-bottom: 12px;
+}
+.top_job {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--orange, #fba457);
+  padding-bottom: 10px;
+}
+
+.top_projects {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black, #222);
+  padding-bottom: 10px;
+}
+
+.top_btn {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--green, #1dbf73);
+  border-radius: 50px;
+  border: 1px solid var(--green, #1dbf73);
+  padding: 12px 0;
+}
+.top_btn2 {
+  display: block;
+  max-width: 346px;
+  margin: 0 auto;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 124px 0;
+  text-align: center;
+  color: var(--green, #1dbf73);
+}
+.top_btn:hover {
+  background-color: #1dbf73;
+  color: #fff;
+}
+
+.top_watch {
+  transition: all 0.4s ease;
+  border-radius: 20px;
+  background: var(--light-gray, #f2f0fe);
+}
+
+.top_watch:hover {
+  background-color: #fff;
+  border: 1px solid #1dbf73;
+  box-shadow: 0px 16px 16px 0px rgba(34, 34, 34, 0.04);
+}

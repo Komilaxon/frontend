@@ -1,0 +1,88 @@
+.search {
+  padding-top: 125px;
+  padding-bottom: 400px;
+  background: var(--super-light-gray, #f7f6ff);
+  background-repeat: no-repeat;
+  background-image: url(../../assets//icons//balls.svg);
+}
+
+.close_search {
+  max-width: 250px;
+  display: block;
+  margin: 0 auto;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--black, #222);
+  padding-bottom: 75px;
+}
+
+.search_title {
+  max-width: 1049px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--black, #222);
+  padding-bottom: 60px;
+}
+.search_title span {
+  color: #1dbf73;
+}
+.search_from {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  max-width: 645px;
+  margin-bottom: 50px;
+}
+
+.search_input {
+  width: 100%;
+  border-radius: 50px;
+  outline: none;
+}
+
+.search_btn {
+  color: var(--white, #f6fafd);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px 50px;
+  border-radius: 50px;
+  border: 3px solid var(--light-gray, #f2f0fe);
+  background-color: var(--orange, #fba457);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.search_btn:hover {
+  background-color: #ea9d59;
+}
+
+.search_list {
+  max-width: 750px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.search_item {
+  border-radius: 50px;
+  border: 1px solid var(--light-gray, #f2f0fe);
+  padding: 10px 20px;
+}
+
+.search_category_btn {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: var(--orange, #fba457);
+  border: 1px solid var(--orange, #fba457);
+}
+.search_category_btn:hover {
+  color: #fff;
+  background-color: #fba457;
+}

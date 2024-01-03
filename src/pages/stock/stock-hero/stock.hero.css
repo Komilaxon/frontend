@@ -1,0 +1,84 @@
+.stock_hero {
+  padding: 160px 0;
+  background-color: var(--super-light-gray, #f7f6ff);
+  background-repeat: no-repeat;
+  background-image: url(../../../assets//icons//balls.svg);
+}
+.stock_hero_title {
+  max-width: 1049px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--black, #222);
+  margin-bottom: 60px;
+}
+.stock_hero_form {
+  max-width: 645px;
+  margin: 0 auto;
+  position: relative;
+  max-width: 532px;
+  margin-bottom: 50px;
+}
+.stock_hero_input {
+  width: 100%;
+  border-radius: 50px;
+  outline: none;
+}
+.stock_hero_form_btn {
+  color: var(--white, #f6fafd);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px 50px;
+  border-radius: 50px;
+  border: 3px solid var(--light-gray, #f2f0fe);
+  background-color: var(--orange, #fba457);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+.stock_hero_list {
+  max-width: 750px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stock_hero_item {
+  border-radius: 50px;
+  border: 1px solid var(--light-gray, #f2f0fe);
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+.stock_hero_item + .stock_hero_item {
+  margin-left: 15px;
+}
+.stock_hero_btn {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--orange, #fba457);
+}
+.btn_item {
+  border-radius: 50px;
+  border: 1px solid var(--orange, #fba457);
+}
+
+.stock_hero_text {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--black, #222);
+}
+.stock_hero_span {
+  padding-top: 20px;
+  font-weight: 600;
+  color: var(--green, #1dbf73);
+}
+.stock_vektor {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  padding-top: 20px;
+  cursor: pointer;
+}

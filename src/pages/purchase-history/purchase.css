@@ -1,0 +1,42 @@
+.purchase_title {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--black, #222);
+}
+
+.purchase_title span {
+  color: #fba457;
+}
+
+.purchase_text {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.48px;
+  color: var(--black, #222);
+}
+
+.purchase_text2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+
+.purchase_span {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #b0aad0;
+}
+
+.purchase_text3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--black, #222);
+}
+
+.purchase_watch {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+}

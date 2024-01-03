@@ -1,0 +1,81 @@
+.stock2_header {
+  padding-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--super-light-gray, #f7f6ff);
+  background: var(--white, #f6fafd);
+  box-shadow: 0px 16px 16px 0px rgba(34, 34, 34, 0.04);
+}
+.stock2_header_block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.stock2_from {
+  width: 420px;
+  position: relative;
+}
+.stock2_btn {
+  color: var(--white, #f6fafd);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px 50px;
+  border-radius: 50px;
+  border: 3px solid var(--light-gray, #f2f0fe);
+  background-color: var(--orange, #fba457);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.stock2_box {
+  margin-left: auto;
+  margin-right: 51px;
+}
+.stock2_design {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green, #1dbf73);
+}
+
+.stock2_design::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-repeat: no-repeat;
+  background-image: url(../../../assets//icons//design.vektor.svg);
+  margin-right: 4px;
+}
+
+.stock2_item {
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid var(--light-gray, #f2f0fe);
+}
+
+.stock2_list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 40px 0;
+}
+
+.stock2_category_btn {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--orange, #fba457);
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid var(--orange, #fba457);
+}
+
+.stock2_category_btn:hover {
+  color: #fff;
+  background-color: #fba457;
+}
+
+.stock2_projects {
+  background-color: var(--white, #f6fafd);
+}

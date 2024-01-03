@@ -1,0 +1,64 @@
+.service_title {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.48px;
+  color: var(--black, #222);
+  padding-bottom: 20px;
+}
+
+.service_text {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--black, #222);
+  padding-bottom: 50px;
+}
+
+.service_list {
+  display: flex;
+  justify-content: space-between;
+}
+.service_item {
+  max-width: 389px;
+}
+.service_item2 {
+  max-width: 389px;
+}
+.service_item3 {
+  max-width: 389px;
+}
+.service_item::before {
+  content: "";
+  display: inline-block;
+  width: 83px;
+  height: 83px;
+  background-repeat: no-repeat;
+  background-image: url(../../../assets//icons//service1.svg);
+}
+.service_item2::before {
+  content: "";
+  display: inline-block;
+  width: 83px;
+  height: 83px;
+  background-repeat: no-repeat;
+  background-image: url(../../../assets//icons//service2.svg);
+}
+.service_item3::before {
+  content: "";
+  display: inline-block;
+  width: 83px;
+  height: 81px;
+  background-repeat: no-repeat;
+  background-image: url(../../../assets//icons//service3.svg);
+}
+.service_inner_text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--black, #222);
+  padding: 20px 0;
+}
+
+.service_info {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--black, #222);
+}
