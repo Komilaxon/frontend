@@ -10,8 +10,6 @@ import ReverseLine from "../../assets/icons/reverse.vektor.svg";
 import { useModal } from "../../hooks/useModal";
 import "./header.css";
 
-import { RegisterModal } from "../../components/register-modal/register.modal";
-
 export const Header = () => {
   const { pathname } = useLocation();
   const { close, open, isOpen, toggle } = useModal();

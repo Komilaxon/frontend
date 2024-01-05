@@ -1,14 +1,16 @@
 import React from "react";
 import LeftVektor from "../../assets/icons/left_vektor.svg";
+import { useGetCategoriesQuery } from "../../redux/get.categories.js";
 
 export const Categories = ({ selectedCategory, setSelectedCategory }) => {
-  let data;
+  const { data } = useGetCategoriesQuery();
+
   const handleCategoryClick = (category) =>
     setSelectedCategory(
       selectedCategory?._id == category?._id ? null : category
     );
 
-  const handeHiddenCategory = () => setSelectedCategory(null);
+  const handleHiddenCategory = () => setSelectedCategory(null);
 
   return (
     <React.Fragment>
@@ -19,7 +21,7 @@ export const Categories = ({ selectedCategory, setSelectedCategory }) => {
               <img src={LeftVektor} alt="img" />
             </div>
             <button
-              onClick={handeHiddenCategory}
+              onClick={handleHiddenCategory}
               className="text-sm font-semibold text-[#1DBF73] pl-1"
             >
               {selectedCategory?.name}
