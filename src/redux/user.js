@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { BASE_URL } from "../utils/base-url";
 
-const token = localStorage.getItem("token")
+const token = localStorage.getItem("token");
 const baseQueryHeaders = token ? { Authorization: `${token}` } : undefined;
 
 export const getMe = createApi({
