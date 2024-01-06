@@ -49,15 +49,6 @@ const TabOptions = () => {
               Удалить
             </button>
           </div>
-          <button
-            type="button"
-            className="rounded-md max-w-[307px] flex flex-col justify-center p-5 gap-y-2 items-center border border-black/5 "
-          >
-            <img src={orange_plus} alt="plus" />
-            <span className="text-[#FBA457] text-lg font-semibold">
-              Добавить новую опцию
-            </span>
-          </button>
         </div>
       </div>
     </div>
