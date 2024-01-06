@@ -1,4 +1,5 @@
 import Logo from "../../assets/icons/logo.svg";
+import { useInputValue } from "../../hooks/use.input.value";
 import { Link, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../../redux/auth/auth";
 import "./login.css";
@@ -8,22 +9,22 @@ import React, { useRef } from "react";
 export const Login = ({ token, setToken }) => {
   const [remember, setRemember] = React.useState(false);
   const chechRemembering = () => setRemember(!remember);
+  const { value, changeValue } = useInputValue({
+    email: "",
+    password: "",
+  });
   const navigate = useNavigate();
   const [loginMutate] = useLoginMutation();
 
   const submit = async (e) => {
     e.preventDefault();
-    let email = useRef("");
-    let password = useRef("");
+
     try {
-      email = email.current.value;
-      password = password.current.value;
-
-      const res = await loginMutate([email, password]).then((data) => {
-        localStorage.setItem("token", JSON.stringify(data.data));
-        setToken(data.data);
+      const res = await loginMutate(value).then((data) => {
+        localStorage.setItem("token", JSON.stringify(data.data.data));
+        setToken(data.data.data);
       });
-
+      console.log(value);
       navigate("/user");
     } catch (error) {
       console.error(error.message);
@@ -46,6 +47,7 @@ export const Login = ({ token, setToken }) => {
             <div className="input_box">
               <label>E-mail</label>
               <input
+                onChange={changeValue}
                 type="text"
                 placeholder="E-mail"
                 className="login_email"
@@ -55,6 +57,7 @@ export const Login = ({ token, setToken }) => {
             <div className="input_box">
               <label>Пароль </label>
               <input
+                onChange={changeValue}
                 type="password"
                 placeholder="Пароль"
                 className="login_password"

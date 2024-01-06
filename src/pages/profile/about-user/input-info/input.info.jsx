@@ -9,7 +9,7 @@ export const UserInputInfo = () => {
   });
   const submit = (e) => {
     e.preventDefault();
-    console.log(value);
+    
   };
 
   return (

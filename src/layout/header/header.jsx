@@ -16,6 +16,7 @@ export const Header = () => {
   if (pathname == "/stock2") {
     return null;
   }
+
   const [profile, setProfile] = React.useState(false);
   const toogleProfil = () => setProfile(!profile);
 

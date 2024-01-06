@@ -18,16 +18,20 @@ const CreateWorkTabs = () => {
   const [tabIds, setTabIds] = useState([]);
   let tabNumber = parseInt(searchParams.get("tab") || "1");
   return (
-    <main className="container !py-14">
-      <TabsHeader tabIds={tabIds} />
-      <div className="py-20">
-        <GetTab tabNumber={tabNumber} setSearchParams={setSearchParams} />
-      </div>
-      <TabFooter
-        setTabIds={setTabIds}
-        tabIds={tabIds}
-        setSearchParams={setSearchParams}
-      />
+    <main className="">
+      <section className="bg-[#F6FAFD] py-14">
+        <div className="container">
+          <TabsHeader tabIds={tabIds} />
+          <div className="py-20">
+            <GetTab tabNumber={tabNumber} setSearchParams={setSearchParams} />
+          </div>
+          <TabFooter
+            setTabIds={setTabIds}
+            tabIds={tabIds}
+            setSearchParams={setSearchParams}
+          />
+        </div>
+      </section>
     </main>
   );
 };
