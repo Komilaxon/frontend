@@ -7,12 +7,9 @@ import Message from "../../assets/icons/message.svg";
 import User from "../../assets/img/user.svg";
 import ProjectLine from "../../assets/icons/projects.line.svg";
 import ReverseLine from "../../assets/icons/reverse.vektor.svg";
-import { useModal } from "../../hooks/useModal";
 import "./header.css";
-
 export const Header = () => {
   const { pathname } = useLocation();
-  const { close, open, isOpen, toggle } = useModal();
   if (pathname == "/stock2") {
     return null;
   }
@@ -41,10 +38,11 @@ export const Header = () => {
       label: "Создать ворк",
     },
     {
-      path: "/stock",
+      path: "/order/new",
       label: "Создать заказ",
-    },
+    }
   ];
+
   return (
     <header className="py-[20px] bg-[#F7F6FF]">
       <div className="max-w-[1380px] mx-auto px-5">

@@ -24,9 +24,8 @@ const TabFooter = ({ setTabIds }) => {
   };
   return (
     <div
-      className={`w-full flex items-center ${
-        tabNumber == 1 ? "justify-end" : "justify-between"
-      }`}
+      className={`w-full flex items-center ${tabNumber == 1 ? "justify-end" : "justify-between"
+        }`}
     >
       {tabNumber != 1 && (
         <button
@@ -36,10 +35,11 @@ const TabFooter = ({ setTabIds }) => {
           Назад
         </button>
       )}
+      
       {tabNumber != 6 && (
         <button
           onClick={handleNext}
-          className="bg-[#1DBF73] hover:bg-[#499271] text-white text-[20px] rounded-full py-3 max-w-[240px] px-14 font-semibold"
+          className="bg-[#1DBF73] hover:bg-[#48d191] text-white text-[20px] rounded-full py-3 max-w-[240px] px-14 font-semibold"
         >
           Дальше
         </button>
@@ -47,7 +47,7 @@ const TabFooter = ({ setTabIds }) => {
       {tabNumber == 6 && (
         <button
           onClick={handleToPublic}
-          className="bg-[#1DBF73] hover:bg-[#1DBF73] text-white text-[20px] rounded-full py-3 max-w-[240px] px-10 font-semibold"
+          className="bg-[#1DBF73] hover:bg-[#48d191] text-white text-[20px] rounded-full py-3 max-w-[240px] px-10 font-semibold"
         >
           Опубликовать
         </button>

@@ -18,6 +18,7 @@ import CreateWorkTabs from "./pages/work/components/Create.Work.Tabs";
 import { Work } from "./pages/work";
 import { MainWork } from "./pages/work/main-work";
 import { AboutUser } from "./pages/profile/about-user/about.user";
+import CreateOrder from "./pages/order/create.order";
 
 const Route = () => {
   const [token, setToken] = React.useState(localStorage.getItem("token") || "");
@@ -43,6 +44,7 @@ const Route = () => {
         { path: "/create_work", element: <CreateWorkTabs /> },
         { path: "/work", element: <MainWork /> },
         { path: "/works", element: <Work /> },
+        { path: "/order/new", element: <CreateOrder /> },
       ],
     },
     { path: "/login", element: <Login token={token} setToken={setToken} /> },
