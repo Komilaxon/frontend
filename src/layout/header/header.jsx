@@ -92,7 +92,7 @@ export const Header = () => {
                     <Link to={""}>
                       <img src={Star} alt="star-icon" />
                     </Link>+
-                    
+
                   </div>
                   <div className="icons_item">
                     <Link to={""}>
@@ -112,7 +112,7 @@ export const Header = () => {
                       : "text-lg font-medium border border-[#F2F0FE] rounded-2xl p-2 ml-5 "
                   }
                 >
-                  <div className="header_user_box">
+                  <div className="header_user_box relative ">
                     <p className="user_name">Ернар Ибрагимов</p>
                     <div onClick={toogleAuth} className="user_img_box">
                       <Link to={"/user"}>
@@ -126,27 +126,28 @@ export const Header = () => {
                         <img src={ProjectLine} alt="vektor" />
                       )}
                     </button>
-                  </div>
-                  <div className={profile ? "space-y-2" : "hidden"}>
-                    <div className="">
-                      <button className="text-base text-[#222] py-2 px-4 rounded-full hover:bg-[#FBA457] hover:text-[#fff] border border-[#F2F0FE]">
-                        Я заказчик
-                      </button>
-                      <button className="text-base text-[#222] py-2 px-4 rounded-full hover:bg-[#FBA457] hover:text-[#fff] border border-[#F2F0FE] ml-3">
-                        Я исполнитель
-                      </button>
+                    <div className={profile ? "space-y-2 left-[-3.5px] absolute z-10 bg-[#F2F0FE] top-full" : "hidden"}>
+                      <div className="whitespace-nowrap">
+                        <button className="text-base text-[#222] py-2 px-4 rounded-full hover:bg-[#FBA457] hover:text-[#fff] border border-[#F2F0FE]">
+                          Я заказчик
+                        </button>
+                        <button className="text-base text-[#222] py-2 px-4 rounded-full hover:bg-[#FBA457] hover:text-[#fff] border border-[#F2F0FE] ml-3">
+                          Я исполнитель
+                        </button>
+                      </div>
+                      <ul className="p-5 space-y-2">
+                        {profileItems.map((item) => (
+                          <li
+                            className="hover:text-[#FBA457] transition-all"
+                            key={item.label}
+                          >
+                            <Link to={item.path}>{item.label}</Link>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <ul className="p-5 space-y-2">
-                      {profileItems.map((item) => (
-                        <li
-                          className="hover:text-[#FBA457] transition-all"
-                          key={item.label}
-                        >
-                          <Link to={item.path}>{item.label}</Link>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
+
                 </div>
               </div>
             ) : (

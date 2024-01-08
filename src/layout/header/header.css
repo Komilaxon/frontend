@@ -7,6 +7,7 @@
 .header_btn:hover {
   background-color: #1da264;
 }
+
 .header_btn2:hover {
   background-color: inherit;
   -webkit-box-shadow: 0px 2px 10px 1px rgba(29, 191, 115, 0.2);
@@ -19,14 +20,14 @@
   align-items: center;
 }
 
-.icons_item + .icons_item {
+.icons_item+.icons_item {
   margin-left: 32px;
 }
 
 .header_user_box {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 .user_img_box {
