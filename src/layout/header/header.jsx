@@ -8,6 +8,7 @@ import User from "../../assets/img/user.svg";
 import ProjectLine from "../../assets/icons/projects.line.svg";
 import ReverseLine from "../../assets/icons/reverse.vektor.svg";
 import "./header.css";
+
 export const Header = () => {
   const { pathname } = useLocation();
   if (pathname == "/stock2") {
@@ -90,7 +91,8 @@ export const Header = () => {
                   <div className="icons_item">
                     <Link to={""}>
                       <img src={Star} alt="star-icon" />
-                    </Link>
+                    </Link>+
+                    
                   </div>
                   <div className="icons_item">
                     <Link to={""}>
@@ -98,7 +100,7 @@ export const Header = () => {
                     </Link>
                   </div>
                   <div className="icons_item">
-                    <Link to={""}>
+                    <Link to={"/chat"}>
                       <img src={Message} alt="message-icon" />
                     </Link>
                   </div>
