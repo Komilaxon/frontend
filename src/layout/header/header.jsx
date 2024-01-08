@@ -40,7 +40,29 @@ export const Header = () => {
     {
       path: "/order/new",
       label: "Создать заказ",
-    }
+    },
+  ];
+  const profileItems = [
+    {
+      path: "/user",
+      label: "Мой кабинет",
+    },
+    {
+      path: "/orders",
+      label: "Мои заказы",
+    },
+    {
+      path: "/history",
+      label: "История",
+    },
+    {
+      path: "/my_settings",
+      label: "Мои настройки",
+    },
+    {
+      path: "/logout",
+      label: "Выйти из аккаунта",
+    },
   ];
 
   return (
@@ -61,40 +83,70 @@ export const Header = () => {
               </li>
             ))}
           </ul>
-          <div>
+          <div className="flex">
             {auth ? (
-              <ul className="icons_box">
-                <li className="icons_item">
-                  <Link to={""}>
-                    <img src={Star} alt="star-icon" />
-                  </Link>
-                </li>
-                <li className="icons_item">
-                  <Link to={""}>
-                    <img src={Bell} alt="bell-icon" />
-                  </Link>
-                </li>
-                <li className="icons_item">
-                  <Link to={""}>
-                    <img src={Message} alt="message-icon" />
-                  </Link>
-                </li>
-                <div className="header_user_box">
-                  <p className="user_name">Ернар Ибрагимов</p>
-                  <div onClick={toogleAuth} className="user_img_box">
-                    <Link to={"/user"}>
-                      <img src={User} alt="user-img" />
+              <div className="flex items-center gap-3">
+                <div className="flex">
+                  <div className="icons_item">
+                    <Link to={""}>
+                      <img src={Star} alt="star-icon" />
                     </Link>
                   </div>
-                  <button onClick={toogleProfil} className="profile_info">
-                    {profile ? (
-                      <img src={ProjectLine} alt="vektor" />
-                    ) : (
-                      <img src={ReverseLine} alt="vektor" />
-                    )}
-                  </button>
+                  <div className="icons_item">
+                    <Link to={""}>
+                      <img src={Bell} alt="bell-icon" />
+                    </Link>
+                  </div>
+                  <div className="icons_item">
+                    <Link to={""}>
+                      <img src={Message} alt="message-icon" />
+                    </Link>
+                  </div>
                 </div>
-              </ul>
+                <div
+                  className={
+                    profile
+                      ? "flex flex-col justify-between border-b-2 text-lg font-medium border border-[#F2F0FE] rounded-2xl p-2 bg-[#F2F0FE]"
+                      : "text-lg font-medium border border-[#F2F0FE] rounded-2xl p-2 ml-5 "
+                  }
+                >
+                  <div className="header_user_box">
+                    <p className="user_name">Ернар Ибрагимов</p>
+                    <div onClick={toogleAuth} className="user_img_box">
+                      <Link to={"/user"}>
+                        <img src={User} alt="user-img" />
+                      </Link>
+                    </div>
+                    <button onClick={toogleProfil} className="profile_info">
+                      {profile ? (
+                        <img src={ReverseLine} alt="vektor" />
+                      ) : (
+                        <img src={ProjectLine} alt="vektor" />
+                      )}
+                    </button>
+                  </div>
+                  <div className={profile ? "space-y-2" : "hidden"}>
+                    <div className="">
+                      <button className="text-base text-[#222] py-2 px-4 rounded-full hover:bg-[#FBA457] hover:text-[#fff] border border-[#F2F0FE]">
+                        Я заказчик
+                      </button>
+                      <button className="text-base text-[#222] py-2 px-4 rounded-full hover:bg-[#FBA457] hover:text-[#fff] border border-[#F2F0FE] ml-3">
+                        Я исполнитель
+                      </button>
+                    </div>
+                    <ul className="p-5 space-y-2">
+                      {profileItems.map((item) => (
+                        <li
+                          className="hover:text-[#FBA457] transition-all"
+                          key={item.label}
+                        >
+                          <Link to={item.path}>{item.label}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
             ) : (
               <>
                 {/* <Link to={"/register"}> */}

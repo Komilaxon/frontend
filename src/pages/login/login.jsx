@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../../redux/auth/auth";
 import "./login.css";
 import LoginImg from "../../assets/img/login-img.png";
-import React, { useRef } from "react";
+import React from "react";
 
 export const Login = ({ token, setToken }) => {
   const [remember, setRemember] = React.useState(false);
@@ -24,7 +24,7 @@ export const Login = ({ token, setToken }) => {
         localStorage.setItem("token", JSON.stringify(data.data.data));
         setToken(data.data.data);
       });
-      console.log(value);
+
       navigate("/user");
     } catch (error) {
       console.error(error.message);
@@ -80,7 +80,7 @@ export const Login = ({ token, setToken }) => {
           </form>
           <Link to={"/register"}>
             <p className="login_create">
-              У Вас все еще нет аккауна?{" "}
+              У Вас все еще нет аккауна?
               <span className="login_create_span">
                 Зарегистрируйтесь бесплатно!
               </span>

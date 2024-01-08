@@ -26,11 +26,10 @@
 .header_user_box {
   display: flex;
   align-items: center;
-  margin-left: 46px;
+  padding: 20px;
 }
 
 .user_img_box {
   max-width: 80px;
   padding: 0 16px;
 }
-

@@ -8,8 +8,12 @@ import { useRegisterMutation } from "../../redux/auth/auth";
 import "../login/login.css";
 
 export const Register = ({ token, setToken }) => {
-  const [registerMutate] = useRegisterMutation();
+  const [executor, setExecutor] = React.useState(false);
+  const [customer, setCustomer] = React.useState(false);
   const navigate = useNavigate();
+  const [registerMutate] = useRegisterMutation();
+  const checkExecutor = () => setExecutor(!executor);
+  const checkCustomer = () => setCustomer(!customer);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -48,18 +52,17 @@ export const Register = ({ token, setToken }) => {
           </h2>
           <form onSubmit={submit}>
             <div className="input_box">
-              <label className={"text-lg font-medium"}>Ваше имя
-              <input
-                type="text"
-                required={true}
-                pattern="^[0-9A-Za-z]{6,16}\d+$"
-                placeholder="Имя"
-                className="w-full border-b-2 border-b-[#f2f0fe] p-3 rounded-full outline-none"
-                name="fullname"
-              />
-              
+              <label className={"text-lg font-medium"}>
+                Ваше имя
+                <input
+                  type="text"
+                  required={true}
+                  pattern="^[0-9A-Za-z]{6,16}\d+$"
+                  placeholder="Имя"
+                  className="w-full border-b-2 border-b-[#f2f0fe] p-3 rounded-full outline-none"
+                  name="fullname"
+                />
               </label>
-              
             </div>
             <div className="input_box">
               <label className="text-lg font-medium">Ваше фамилия</label>
@@ -79,7 +82,7 @@ export const Register = ({ token, setToken }) => {
                 placeholder="E-mail"
                 className="w-full border-b-2 border-b-[#f2f0fe] p-3 rounded-full outline-none"
                 name="email"
-                min={6}
+                min={5}
               />
             </div>
             <div className="input_box">
@@ -114,15 +117,19 @@ export const Register = ({ token, setToken }) => {
             </div>
             <div className="flex items-center gap-5 py-5">
               <div className="flex items-center gap-2">
-                <div>
-                  <img src={Balls} alt="img" />
-                </div>
+                <button type="button" onClick={checkExecutor}>
+                  <span
+                    className={executor ? "login_span2" : "login_span"}
+                  ></span>
+                </button>
                 <p className="text-lg ">Я исполнитель</p>
               </div>
               <div className="flex items-center gap-2">
-                <div>
-                  <img src={Balls} alt="img" />
-                </div>
+                <button type="button" onClick={checkCustomer}>
+                  <span
+                    className={customer ? "login_span2" : "login_span"}
+                  ></span>
+                </button>
                 <p className="text-lg ">Я заказчик</p>
               </div>
             </div>

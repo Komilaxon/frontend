@@ -1,6 +1,6 @@
 import React from "react";
 import LeftVektor from "../../assets/icons/left_vektor.svg";
-import { useGetCategoriesQuery } from "../../redux/get.categories.js";
+import { useGetCategoriesQuery } from "../../redux/api/get.categories.js";
 
 export const Categories = ({ selectedCategory, setSelectedCategory }) => {
   const { data } = useGetCategoriesQuery();

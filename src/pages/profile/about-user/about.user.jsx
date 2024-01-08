@@ -2,6 +2,7 @@ import React from "react";
 import { UserInfo } from "./info/user.info";
 import { UserInputInfo } from "./input-info/input.info";
 import { UserJob } from "./job/user.job";
+import { UserImg } from "./user-img/user.img";
 
 export const AboutUser = () => {
   return (
@@ -21,7 +22,9 @@ export const AboutUser = () => {
               Далее
             </button>
           </div>
+          
         </div>
+        <UserImg />
       </section>
     </main>
   );

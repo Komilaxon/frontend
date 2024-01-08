@@ -9,11 +9,10 @@ export const UserInputInfo = () => {
   });
   const submit = (e) => {
     e.preventDefault();
-    
   };
 
   return (
-    <div className="max-w-[600px] py-1 flex">
+    <div className="max-w-[600px] py-1 flex mt-5">
       <form onSubmit={submit} className="flex justify-between gap-10">
         <div>
           <div className="space-y-1">
@@ -27,7 +26,7 @@ export const UserInputInfo = () => {
               className="w-full h-[44px] outline-none border border-black/5 px-3 rounded-md placeholder:text-[#B0AAD0]"
             />
           </div>
-          <div className="space-y-1">
+          <div className="space-y-1 mt-5">
             <label htmlFor="name_input">Образование</label>
             <input
               onChange={changeValue}
@@ -52,7 +51,7 @@ export const UserInputInfo = () => {
               className="w-full h-[44px] outline-none border border-black/5 px-3 rounded-md placeholder:text-[#B0AAD0]"
             />
           </div>
-          <div className="space-y-1">
+          <div className="space-y-1 mt-5">
             <label htmlFor="name_input">Знание языков</label>
             <input
               onChange={changeValue}

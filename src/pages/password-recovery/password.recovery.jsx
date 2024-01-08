@@ -1,8 +1,17 @@
 import Logo from "../../assets/icons/logo.svg";
 import { Link } from "react-router-dom";
 import Img from "../../assets/img/login-img.png";
+import { useInputValue } from "../../hooks/use.input.value";
 
 export const PasswordRecovery = () => {
+  const { value, changeValue } = useInputValue({
+    email: "",
+    password: "",
+  });
+  
+  const submit = async (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="flex">
       <div className="max-w-[1380px] mx-auto px-5">
@@ -18,11 +27,12 @@ export const PasswordRecovery = () => {
           <h2 className="text-3xl font-bold text-[#1A202C] pb-5">
             Заполните поле ниже
           </h2>
-          <form>
+          <form onSubmit={submit}>
             <div className="">
               <label className="text-lg font-medium">E-mail</label>
               <input
-                type="text"
+                onChange={changeValue}
+                type="email"
                 placeholder="E-mail"
                 className="w-full border-b-2 border-b-[#f2f0fe] p-3 rounded-full outline-none"
               />
@@ -30,7 +40,8 @@ export const PasswordRecovery = () => {
             <div className="pt-8 pb-8">
               <label className="text-lg font-medium">Код</label>
               <input
-                type="text"
+                onChange={changeValue}
+                type="password"
                 placeholder="Код"
                 className="w-full border-b-2 border-b-[#f2f0fe] p-3 rounded-full outline-none"
               />

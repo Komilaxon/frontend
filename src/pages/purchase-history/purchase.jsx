@@ -1,7 +1,7 @@
 import "./purchase.css";
 import Vektor from "../../assets/icons/vektor3.svg";
 import Img from "../../assets/img/user-works.jpg";
-
+import { PaginationButton } from "../../components/buttons/pagination.button";
 const purchase = [
   {
     img: Img,
@@ -70,9 +70,7 @@ export const PurchaseHistory = () => {
               </li>
             ))}
           </ul>
-          <button className="text-[#1DBF73] text-lg font-semibold rounded-full py-4 px-12 border border-[#1DBF73] my-14 block mx-auto hover:bg-[#1DBF73] hover:text-white">
-            Загрузить еще
-          </button>
+          <PaginationButton />
         </div>
       </section>
     </main>
