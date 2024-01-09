@@ -1,9 +1,11 @@
 import React from "react";
 import Select from "react-select";
-import orange_plus from "../../assets/icons/orange.plus.svg";
 import upload_file from "../../assets/icons/upload.file.svg";
 import doc_upload from "../../assets/icons/doc.upload.svg";
 import { toBase64 } from "../../utils/toBase64";
+import { usePostOrderMutation } from "../../redux/api/order";
+import { useGetCategoriesQuery } from "../../redux/api/get.categories";
+import { useGetSubCategoriesQuery } from "../../redux/api/sub_categories";
 
 const options = [
   { value: "blues", label: "Blues" },
@@ -23,10 +25,35 @@ const customStyles = {
   }),
 };
 const CreateOrder = () => {
+  const [createOrder] = usePostOrderMutation();
+  const { data: categories } = useGetCategoriesQuery();
+  const { data: sub_categories } = useGetSubCategoriesQuery();
+  const handlePostOrder = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    const formElements = e.target.elements;
+    for (let i = 0; i < formElements.length; i++) {
+      const element = formElements[i];
+      if (element.type === 'file') {
+        formData.append(element.name, element.files[0]);
+      } else if (element.type !== "submit" && element.value !== '') {
+        formData.append(element.name, element.value);
+      }
+    }
+
+    createOrder({ order: formData, user_id: "659abb9680fc5376ed8930ac" })
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(error => {
+        console.error("Error from Backend:", error);
+      });
+
+  }
   return (
     <main>
       <section className="bg-[#F6FAFD]  py-2">
-        <div className="container">
+        <form onSubmit={handlePostOrder} className="container">
           <div className="max-w-[644px] space-y-7 py-2">
             <h1 className="text-[24px] font-semibold mb-14">
               Опубликуйте ваш заказ
@@ -36,6 +63,7 @@ const CreateOrder = () => {
               <input
                 id="name_input"
                 type="text"
+                name="title"
                 placeholder="Название"
                 className="w-full h-[44px] outline-none border border-black/5 px-3 rounded-md placeholder:text-[#B0AAD0]"
               />
@@ -45,6 +73,7 @@ const CreateOrder = () => {
               <textarea
                 id="name_input"
                 type="text"
+                name="caption"
                 placeholder="Кратко опишите свой ворк"
                 className="w-full min-h-[109px] max-h-[218px] outline-none border border-black/5 px-3 py-4 rounded-md placeholder:text-[#B0AAD0]"
               />
@@ -54,9 +83,10 @@ const CreateOrder = () => {
                 <label htmlFor="category_select">Категория</label>
                 <Select
                   id="category_select"
+                  name="categories"
                   className="w-full outline-none border border-black/5 rounded-md"
                   closeMenuOnSelect={true}
-                  options={options}
+                  options={categories?.data.map(item => ({ label: item.name, value: item._id }))}
                   styles={customStyles}
                   placeholder="Категория"
                 />
@@ -67,7 +97,8 @@ const CreateOrder = () => {
                   id="category_select"
                   className="w-full outline-none border border-black/5 rounded-md"
                   closeMenuOnSelect={true}
-                  options={options}
+                  options={sub_categories?.data.map(item => ({ label: item.name, value: item._id }))}
+                  name="subcategories"
                   styles={customStyles}
                   placeholder="Подкатегория"
                 />
@@ -78,13 +109,14 @@ const CreateOrder = () => {
               <input
                 id="name_input"
                 type="text"
-                placeholder="Название"
+                name="time"
+                placeholder="Срок"
                 className="w-full h-[44px] outline-none border border-black/5 px-3 rounded-md placeholder:text-[#B0AAD0]"
               />
             </div>
             <div className="py-5 flex flex-col items-center  border border-black/5 rounded-md">
               <label className="flex justify-center items-center max-w-[322px] flex-col p-9 rounded-md border-dashed hover:bg-inherit hover:border hover:border-[#FBA457] transition-all bg-[#F2F0FE] gap-y-3 cursor-pointer mb-1">
-                <input type="file" accept=".pdf, .doc, .docx" hidden />
+                <input name="image" type="file" accept=".pdf, .doc, .docx" hidden />
                 <img
                   src={upload_file}
                   width={42}
@@ -119,10 +151,10 @@ const CreateOrder = () => {
               </div>
             </div>
           </div>
-          <button className="bg-[#1DBF73] ml-auto block hover:bg-[#48d191] text-white text-[20px] rounded-full py-3 max-w-[240px] px-10 font-semibold">
+          <button type="submit" className="bg-[#1DBF73] ml-auto block hover:bg-[#48d191] text-white text-[20px] rounded-full py-3 max-w-[240px] px-10 font-semibold">
             Опубликовать
           </button>
-        </div>
+        </form>
       </section>
     </main>
   );
