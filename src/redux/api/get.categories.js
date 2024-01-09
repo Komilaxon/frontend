@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { BASE_URL } from "../../utils/base-url";
 
-export const getCategories = createApi({
+export const categories = createApi({
   reducerPath: "getCategories",
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
@@ -11,4 +11,4 @@ export const getCategories = createApi({
   }),
 });
 
-export const { useGetCategoriesQuery } = getCategories;
+export const { useGetCategoriesQuery } = categories;

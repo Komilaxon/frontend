@@ -16,15 +16,13 @@ export const AboutUser = () => {
               <UserInputInfo />
             </div>
           </div>
-
+          <UserImg />
           <div>
             <button type="submit" className="">
               Далее
             </button>
           </div>
-          
         </div>
-        <UserImg />
       </section>
     </main>
   );

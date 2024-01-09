@@ -21,8 +21,8 @@ export const works = createApi({
       query: ({ from, to }) => `/works/by_sum?from=${from}&to=${to}`,
     }),
     postWork: builder.mutation({
-      query: ({ work, id }) => ({
-        url: `/works/${id}`,
+      query: ({ userId, work }) => ({
+        url: `/works/${userId}`,
         method: "POST",
         body: work,
       }),

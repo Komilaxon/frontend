@@ -91,8 +91,7 @@ export const Header = () => {
                   <div className="icons_item">
                     <Link to={""}>
                       <img src={Star} alt="star-icon" />
-                    </Link>+
-
+                    </Link>
                   </div>
                   <div className="icons_item">
                     <Link to={""}>
@@ -126,7 +125,13 @@ export const Header = () => {
                         <img src={ProjectLine} alt="vektor" />
                       )}
                     </button>
-                    <div className={profile ? "space-y-2 left-[-3.5px] absolute z-10 bg-[#F2F0FE] top-full" : "hidden"}>
+                    <div
+                      className={
+                        profile
+                          ? "space-y-2 left-[-3.5px] absolute z-10 bg-[#F2F0FE] top-full"
+                          : "hidden"
+                      }
+                    >
                       <div className="whitespace-nowrap">
                         <button className="text-base text-[#222] py-2 px-4 rounded-full hover:bg-[#FBA457] hover:text-[#fff] border border-[#F2F0FE]">
                           Я заказчик
@@ -147,7 +152,6 @@ export const Header = () => {
                       </ul>
                     </div>
                   </div>
-
                 </div>
               </div>
             ) : (
