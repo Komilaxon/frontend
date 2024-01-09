@@ -1,15 +1,20 @@
 import { Editor } from "@tinymce/tinymce-react";
-import React, { useRef } from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../../../../context/GlobalContext";
+
 
 const TabReq = () => {
-  const editorRef = useRef(null);
+  const { setWorkState } = useContext(GlobalContext)
+  const handleEditorChange = (editor) => {
+    setWorkState({ requirements: editor });
+  };
   return (
     <div className="space-y-7">
       <h1 className="text-2xl font-semibold">Расскажите покупателю, что вам нужно для начала работы над заказом.</h1>
       <h4 className="text-lg font-semibold">Структурируйте свои инструкции для покупателя в виде произвольного текста.</h4>
       <Editor
         apiKey="ecftg14yobx06muc0mjuqekqns1qogjy7gqnhjbokt3hdavn"
-        onInit={(evt, editor) => (editorRef.current = editor)}
+        onEditorChange={handleEditorChange}
         placeholder="Кратко опишите свой ворк"
         init={{
           height: 218,

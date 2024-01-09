@@ -9,7 +9,7 @@ export const works = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL, headers: baseQueryHeaders }),
   endpoints: (builder) => ({
     getWorks: builder.query({
-      query: () => "/works",
+      query: ({ user_id }) => `/works/${user_id}`,
     }),
     getWorksByOffersCount: builder.query({
       query: () => "/bestworks",
@@ -21,8 +21,8 @@ export const works = createApi({
       query: ({ from, to }) => `/works/by_sum?from=${from}&to=${to}`,
     }),
     postWork: builder.mutation({
-      query: ({ userId, work }) => ({
-        url: `/works/${userId}`,
+      query: ({ work, user_id }) => ({
+        url: `/works/${user_id}`,
         method: "POST",
         body: work,
       }),

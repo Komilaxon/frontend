@@ -29,7 +29,10 @@ const CreateOrder = () => {
     for (let i = 0; i < formElements.length; i++) {
       const element = formElements[i];
       if (element.type === "file") {
-        formData.append(element.name, element.files[0]);
+        const filesArray = Array.from(element.files);
+        filesArray.map(file => {
+          formData.append(element.name, file);
+        })
       } else if (element.type !== "submit" && element.value !== "") {
         formData.append(element.name, element.value);
       }
@@ -43,7 +46,8 @@ const CreateOrder = () => {
       });
   };
   const handleFileInputChange = async (e) => {
-    setSelectedFiles((prev) => [...prev, { name: e.target.files[0].name }]);
+    const filesArray = Array.from(e.target.files);
+    setSelectedFiles((prev) => [...prev, ...filesArray]);
   };
   return (
     <main>
@@ -119,10 +123,11 @@ const CreateOrder = () => {
               <label className="flex justify-center items-center max-w-[322px] flex-col p-9 rounded-md border-dashed hover:bg-inherit hover:border hover:border-[#FBA457] transition-all bg-[#F2F0FE] gap-y-3 cursor-pointer mb-1">
                 <input
                   onChange={handleFileInputChange}
-                  name="image"
+                  name="files"
                   type="file"
                   accept=".pdf, .doc, .docx"
                   hidden
+                  multiple
                 />
                 <img
                   src={upload_file}

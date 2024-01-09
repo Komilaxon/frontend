@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Select from "react-select";
-import { useInputValue } from "../../../../hooks/use.input.value";
 import { useGetCategoriesQuery } from "../../../../redux/api/get.categories";
 import { useGetSubCategoriesQuery } from "../../../../redux/api/sub_categories";
 import { useGetSkillsQuery } from "../../../../redux/api/skills";
-import { usePostWorkMutation } from "../../../../redux/api/work";
+import { GlobalContext } from "../../../../context/GlobalContext";
 const customStyles = {
   control: (provided, state) => ({
     ...provided,
@@ -17,33 +16,27 @@ const customStyles = {
 };
 
 const TabBasic = () => {
-  const [postWork] = usePostWorkMutation();
-  const { value, changeValue } = useInputValue({});
   const { data: sub_categories } = useGetSubCategoriesQuery();
   const { data: categories } = useGetCategoriesQuery();
   const { data: skills } = useGetSkillsQuery();
-  const [selectedFiles, setSelectedFiles] = React.useState([]);
-
-  const handlePost = (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    const formElements = e.target.elements;
-    for (let i = 0; i < formElements.length; i++) {
-      const el = formElements[i];
-      if (el.type !== "submit" && el.value !== "") {
-        formData.append(el.name, el.value, value);
-      }
+  const { workState, setWorkState } = useContext(GlobalContext)
+  const handleChange = (event) => {
+    let def_skills = []
+    if (Array.isArray(event)) {
+      event.map(item => {
+        def_skills.push(item.value);
+      })
+      setWorkState({ skills: def_skills })
+    } else if (event.name) {
+      setWorkState({ [event.name]: event.value })
+    } else {
+      setWorkState({ [event.target.name]: event.target.value })
     }
-    console.log(formData);
-    postWork({ work: formData, userId: "659a7cddfa21d2b3445c5e9a" })
-      .then((res) => console.log(res.data))
-      .catch((error) => console.error(error));
-  };
-
+  }
   return (
     <div className="max-w-[645px] space-y-4">
       <div className="space-y-2">
-        <form onSubmit={handlePost} className="space-y-4">
+        <div className="space-y-4">
           <label htmlFor="name_input">Название</label>
           <input
             id="name_input"
@@ -51,7 +44,7 @@ const TabBasic = () => {
             placeholder="Название"
             className="w-full h-[44px] outline-none border border-black/5 px-3 rounded-md placeholder:text-[#B0AAD0]"
             name="title"
-            onChange={changeValue}
+            onChange={handleChange}
           />
 
           <div className="flex w-full gap-x-3">
@@ -64,8 +57,10 @@ const TabBasic = () => {
                 options={categories?.data.map((item) => ({
                   label: item.name,
                   value: item._id,
+                  name: "categories"
                 }))}
                 styles={customStyles}
+                onChange={handleChange}
                 placeholder="Категория"
               />
             </div>
@@ -78,7 +73,9 @@ const TabBasic = () => {
                 options={sub_categories?.data.map((item) => ({
                   label: item.name,
                   value: item._id,
+                  name: "sub_categories"
                 }))}
+                onChange={handleChange}
                 styles={customStyles}
                 placeholder="Подкатегория"
               />
@@ -93,13 +90,26 @@ const TabBasic = () => {
               options={skills?.data.map((item) => ({
                 label: item.name,
                 value: item._id,
+                name: "skills"
               }))}
+              onChange={handleChange}
               isMulti
               styles={customStyles}
               placeholder="Теги"
             />
           </div>
-        </form>
+          <div className="flex flex-col items-start gap-y-2 w-1/2">
+            <label >Цена в тенге</label>
+            <input
+              name="sum"
+              type="number"
+              onChange={handleChange}
+              min={0}
+              placeholder="Цена в тенге"
+              className="w-full text-base placeholder:text-[#B0AAD0] border border-black/5 outline-none p-2 rounded-md"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

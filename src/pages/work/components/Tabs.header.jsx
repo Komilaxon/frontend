@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import TabBasic from "../tabs/basic/Tab.basic";
 import TabOptions from "../tabs/options/Tab.options";
 import TabDesc from "../tabs/description/Tab.desc";
@@ -13,29 +13,25 @@ export const tabs = [
     id: 1,
     element: <TabBasic />,
   },
-  {
-    label: "Стоимость и опции",
-    id: 2,
-    element: <TabOptions />,
-  },
+
   {
     label: "Описание",
-    id: 3,
+    id: 2,
     element: <TabDesc />,
   },
   {
     label: "Требования",
-    id: 4,
+    id: 3,
     element: <TabReq />,
   },
   {
     label: "Галерея",
-    id: 5,
+    id: 4,
     element: <TabGallery />,
   },
   {
     label: "Публикация",
-    id: 6,
+    id: 5,
     element: <TabsPublication />,
   },
 ];
@@ -60,9 +56,8 @@ const TabsHeader = ({ tabIds }) => {
             <div className={`w-full flex justify-center relative`}>
               {tabs[tabs.length - 1].id != tab.id && (
                 <div
-                  className={`w-full h-1 ${
-                    tabIds?.includes(tab.id) ? "bg-[#1DBF73]" : "bg-[#B0AAD0]"
-                  } absolute left-1/2 top-1/2 z-[1]`}
+                  className={`w-full h-1 ${tabIds?.includes(tab.id) ? "bg-[#1DBF73]" : "bg-[#B0AAD0]"
+                    } absolute left-1/2 top-1/2 z-[1]`}
                 ></div>
               )}
               <div
@@ -71,11 +66,10 @@ const TabsHeader = ({ tabIds }) => {
                 rounded-full flex items-center justify-center z-[2] text-white font-semibold`}
               >
                 <div
-                  className={`w-12 h-12  ${
-                    tabIds?.includes(tab.id) || tabNumber === tab.id
-                      ? "bg-[#1DBF73]"
-                      : "bg-[#B0AAD0]"
-                  } rounded-full flex items-center justify-center text-white font-semibold`}
+                  className={`w-12 h-12  ${tabIds?.includes(tab.id) || tabNumber === tab.id
+                    ? "bg-[#1DBF73]"
+                    : "bg-[#B0AAD0]"
+                    } rounded-full flex items-center justify-center text-white font-semibold`}
                 >
                   {tab.id}
                 </div>

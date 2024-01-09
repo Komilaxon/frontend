@@ -18,7 +18,7 @@ const CreateWorkTabs = () => {
   const [tabIds, setTabIds] = useState([]);
   let tabNumber = parseInt(searchParams.get("tab") || "1");
   return (
-    <main className="">
+    <main>
       <section className="bg-[#F6FAFD] py-14">
         <div className="container">
           <TabsHeader tabIds={tabIds} />
