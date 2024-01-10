@@ -6,8 +6,8 @@ import { usePostWorkMutation } from "../../../redux/api/work";
 const TabFooter = ({ setTabIds }) => {
   const [searchParams, setSearchParam] = useSearchParams();
   const tabNumber = parseInt(searchParams.get("tab") || "1");
-  const { workState } = useContext(GlobalContext)
-  const [postWork] = usePostWorkMutation()
+  const { workState } = useContext(GlobalContext);
+  const [postWork] = usePostWorkMutation();
   const navigate = useNavigate();
   const handleNext = () => {
     setSearchParam({ tab: tabNumber + 1 });
@@ -27,35 +27,34 @@ const TabFooter = ({ setTabIds }) => {
     const formData = new FormData();
     Object.entries(workState).forEach(([key, value]) => {
       if (key === "files") {
-        workState.files.map(file => {
-          formData.append("files", file)
-        })
-      }
-      else if (key === "images") {
-        workState.images.map(file => {
-          formData.append("images", file)
-        })
-      }
-      else if (key === "questions") {
-        workState.questions.map(q => {
-          formData.append("questions", JSON.stringify(q))
-        })
-      }
-      else if (key === "skills") {
-        workState.skills.map(skill => {
-          formData.append("skills", skill)
-        })
+        workState.files.map((file) => {
+          formData.append("files", file);
+        });
+      } else if (key === "images") {
+        workState.images.map((file) => {
+          formData.append("images", file);
+        });
+      } else if (key === "questions") {
+        workState.questions.map((q) => {
+          formData.append("questions", JSON.stringify(q));
+        });
+      } else if (key === "skills") {
+        workState.skills.map((skill) => {
+          formData.append("skills", skill);
+        });
       } else {
-        formData.append(key, value)
-
+        formData.append(key, value);
       }
     });
-    postWork({ work: formData, user_id: "659abb9680fc5376ed8930ac" }).then(() => navigate("/user"))
+    postWork({ work: formData, user_id: "659ec19b583e2d8d45bc5a5b" }).then(() =>
+      navigate("/user")
+    );
   };
   return (
     <div
-      className={`w-full flex items-center ${tabNumber == 1 ? "justify-end" : "justify-between"
-        }`}
+      className={`w-full flex items-center ${
+        tabNumber == 1 ? "justify-end" : "justify-between"
+      }`}
     >
       {tabNumber != 1 && (
         <button

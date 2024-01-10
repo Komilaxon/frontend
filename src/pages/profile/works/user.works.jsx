@@ -7,7 +7,7 @@ import { useGetWorksQuery } from "../../../redux/api/work";
 
 export const UserWorks = () => {
   const { data: works } = useGetWorksQuery({
-    user_id: "659e5fc98875ff89ed400d2a",
+    user_id: "659ec19b583e2d8d45bc5a5b",
   });
   console.log(works);
   return (
@@ -17,19 +17,21 @@ export const UserWorks = () => {
         <Link to={"/create_work"} className="user_works_item">
           <p className="create_work">Создать ворк</p>
         </Link>
-        {works?.data?.results?.map((item) => (
-          <li className="user_works_item2">
-            <div>
-              <img
-                src={"http://localhost:4000/api/" + item.images[0]}
-                alt="work_img"
-              />
-            </div>
-            <div className="user_work_text_box">
-              <p className="user_work_title">{item.title}</p>
-              <p className="user_work_price">{item.sum} тенге</p>
-            </div>
-          </li>
+        {works?.data?.map((item) => (
+          <Link to={`/work/${item._id}`}>
+            <li className="user_works_item2">
+              <div>
+                <img
+                  src={"http://localhost:4000/api/" + item.images[0]}
+                  alt="work_img"
+                />
+              </div>
+              <div className="user_work_text_box">
+                <p className="user_work_title">{item.title}</p>
+                <p className="user_work_price">{item.sum} тенге</p>
+              </div>
+            </li>
+          </Link>
         ))}
       </ul>
       <PaginationButton />

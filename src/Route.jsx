@@ -42,7 +42,7 @@ const Route = () => {
         { path: "/order", element: <Order /> },
         { path: "/favorite-works", element: <FavoriteWorks /> },
         { path: "/create_work", element: <CreateWorkTabs /> },
-        { path: "/work", element: <MainWork /> },
+        { path: "/work/:id", element: <MainWork /> },
         { path: "/works", element: <Work /> },
         { path: "/order/new", element: <CreateOrder /> },
       ],

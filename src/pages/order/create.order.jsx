@@ -30,14 +30,14 @@ const CreateOrder = () => {
       const element = formElements[i];
       if (element.type === "file") {
         const filesArray = Array.from(element.files);
-        filesArray.map(file => {
+        filesArray.map((file) => {
           formData.append(element.name, file);
-        })
+        });
       } else if (element.type !== "submit" && element.value !== "") {
         formData.append(element.name, element.value);
       }
     }
-    createOrder({ order: formData, user_id: "659abb9680fc5376ed8930ac" })
+    createOrder({ order: formData, user_id: "659ec19b583e2d8d45bc5a5b" })
       .then((res) => {
         console.log(res.data);
       })

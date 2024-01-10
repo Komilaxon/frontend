@@ -31,11 +31,11 @@ export const Header = () => {
       label: "Ворки",
     },
     {
-      path: "/stock",
+      path: "/stock2",
       label: "Конкурсы",
     },
     {
-      path: "/stock",
+      path: "/create_work",
       label: "Создать ворк",
     },
     {
@@ -156,19 +156,19 @@ export const Header = () => {
               </div>
             ) : (
               <>
-                {/* <Link to={"/register"}> */}
-                <button className="text-global_green py-2.5 px-7 rounded-full bg-[#f2f0fe] font-semibold text-base header_btn2">
-                  Регистрация
-                </button>
-                {/* </Link> */}
-                {/* <Link to={"/login"}> */}
-                <button
-                  onClick={toogleAuth}
-                  className="bg-global_green py-2.5 px-7 rounded-full text-white ml-7 font-semibold text-base header_btn"
-                >
-                  Войти
-                </button>
-                {/* </Link> */}
+                <Link to={"/register"}>
+                  <button className="text-global_green py-2.5 px-7 rounded-full bg-[#f2f0fe] font-semibold text-base header_btn2">
+                    Регистрация
+                  </button>
+                </Link>
+                <Link to={"/login"}>
+                  <button
+                    onClick={toogleAuth}
+                    className="bg-global_green py-2.5 px-7 rounded-full text-white ml-7 font-semibold text-base header_btn"
+                  >
+                    Войти
+                  </button>
+                </Link>
               </>
             )}
           </div>
