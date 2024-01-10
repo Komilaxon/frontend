@@ -16,18 +16,20 @@ export const UserWorks = () => {
           <p className="create_work">Создать ворк</p>
         </Link>
         {works?.data?.map((item) => (
-          <li className="user_works_item2">
-            <div>
-              <img
-                src={"http://localhost:4000/api/" + item.images[0]}
-                alt="work_img"
-              />
-            </div>
-            <div className="user_work_text_box">
-              <p className="user_work_title">{item.title}</p>
-              <p className="user_work_price">{item.sum} тенге</p>
-            </div>
-          </li>
+          <Link to={`/work/${item._id}`}>
+            <li className="user_works_item2">
+              <div>
+                <img
+                  src={"http://localhost:4000/api/" + item.images[0]}
+                  alt="work_img"
+                />
+              </div>
+              <div className="user_work_text_box">
+                <p className="user_work_title">{item.title}</p>
+                <p className="user_work_price">{item.sum} тенге</p>
+              </div>
+            </li>
+          </Link>
         ))}
       </ul>
       <PaginationButton />
