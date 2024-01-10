@@ -1,3 +1,4 @@
+import React from "react";
 import UserWorks from "../../assets/img/user-works.jpg";
 import UserImg from "../../assets/img/user2.svg";
 import Stars from "../../assets/icons/stars.svg";
@@ -7,7 +8,6 @@ import { Categories } from "../../components/categories";
 import { CategoryButton } from "../../components/buttons/category.button";
 import { WorksSorting } from "../../components/stock/stock.search";
 import { PaginationButton } from "../../components/buttons/pagination.button";
-
 const cart = [
   {
     img: UserWorks,
@@ -21,6 +21,7 @@ const cart = [
 ];
 
 export const Work = () => {
+  const [selectedCategory, setSelectedCategory] = React.useState(null);
   return (
     <main>
       <section className="navbar_list">
@@ -29,7 +30,10 @@ export const Work = () => {
             <SearchForm />
           </div>
           <ul className="flex items-center justify-between">
-            <Categories />
+            <Categories
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+            />
             <CategoryButton />
           </ul>
         </div>

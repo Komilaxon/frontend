@@ -4,25 +4,28 @@ import upload_file from "../../../../assets/icons/upload.file.svg";
 import doc_upload from "../../../../assets/icons/doc.upload.svg";
 import { toBase64 } from "../../../../utils/toBase64";
 import { GlobalContext } from "../../../../context/GlobalContext";
+
 const TabGallery = () => {
   const [images, setImages] = useState([]);
-  const { workState, setWorkState } = useContext(GlobalContext)
+  const { workState, setWorkState } = useContext(GlobalContext);
   const [selectFiles, setSelectImages] = useState([]);
   const handleImageToBase64 = async (e) => {
     let newImages = Array.from(e.target.files);
     newImages.map(async (img) => {
       let imageBase64 = await toBase64(img);
       setImages((prev) => [...prev, imageBase64]);
-    })
+    });
     setWorkState({ images: [...workState.images, ...newImages] });
   };
   const handleFileInputChange = async (e) => {
-    setSelectImages(prev => [...prev, ...Array.from(e.target.files)])
-    setWorkState({ files: [...workState.files, ...Array.from(e.target.files)] });
+    setSelectImages((prev) => [...prev, ...Array.from(e.target.files)]);
+    setWorkState({
+      files: [...workState.files, ...Array.from(e.target.files)],
+    });
   };
+  console.log(workState);
   return (
     <div className="space-y-[60px] max-w-[50%]">
-
       <div className="space-y-7">
         <h1 className="font-semibold text-2xl">Создайте свою галерею</h1>
         <h4 className="font-semibold text-lg">
@@ -53,7 +56,10 @@ const TabGallery = () => {
           </label>
 
           {images.map((image, index) => (
-            <div key={index} className="w-full h-[195px] rounded-[20px] border ">
+            <div
+              key={index}
+              className="w-full h-[195px] rounded-[20px] border "
+            >
               <img
                 className="w-full h-full object-cover rounded-[20px]"
                 src={image}
@@ -80,7 +86,13 @@ const TabGallery = () => {
         </h4>
         <div className="py-5 flex flex-col items-center  border border-black/5 rounded-md">
           <label className="flex justify-center items-center max-w-[322px] flex-col p-9 rounded-md border-dashed hover:bg-inherit hover:border hover:border-[#FBA457] transition-all bg-[#F2F0FE] gap-y-3 cursor-pointer mb-1">
-            <input onChange={handleFileInputChange} type="file" accept=".pdf, .doc, .docx" hidden multiple />
+            <input
+              onChange={handleFileInputChange}
+              type="file"
+              accept=".pdf, .doc, .docx"
+              hidden
+              multiple
+            />
             <img src={upload_file} width={42} height={42} alt="upload_file" />
             <h5 className="text-[11.053px] font-medium text-center">
               Перетащите файл сюда или нажмите <br />
@@ -91,19 +103,19 @@ const TabGallery = () => {
             Загружайте только файлы doc / pdf и не более 500 КБ
           </span>
           <div className="space-y-1 mt-3 w-full flex flex-col items-center">
-
-            {
-              selectFiles.map((file, index) => <div key={index} className="max-w-[322px] w-full py-3 rounded-md px-1 border border-black/5 flex items-center justify-between">
+            {selectFiles.map((file, index) => (
+              <div
+                key={index}
+                className="max-w-[322px] w-full py-3 rounded-md px-1 border border-black/5 flex items-center justify-between"
+              >
                 <div className="flex items-center gap-x-1  h-full">
                   <img src={doc_upload} width={16} height={16} alt="image" />
                   <span className="text-[14px] font-normal leading-[15.931px]">
-                    {
-                      file.name
-                    }
+                    {file.name}
                   </span>
                 </div>
-              </div>)
-            }
+              </div>
+            ))}
           </div>
         </div>
       </div>

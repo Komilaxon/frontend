@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import "./stock.hero.css";
 import Vektor from "../../../assets/icons/stock.vektor.svg";
@@ -6,6 +7,7 @@ import { Categories } from "../../../components/categories";
 import { CategoryButton } from "../../../components/buttons/category.button";
 
 export const StockHero = () => {
+  const [selectedCategory, setSelectedCategory] = React.useState(null);
   return (
     <div className="stock_hero_block">
       <h2 className="stock_hero_title">
@@ -17,7 +19,10 @@ export const StockHero = () => {
         <SearchForm />
       </div>
       <ul className="w-[680px] mx-auto flex flex-wrap gap-5 justify-between mb-10">
-        <Categories />
+        <Categories
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
         <CategoryButton />
       </ul>
       <p className="stock_hero_text">
