@@ -46,15 +46,14 @@ const TabFooter = ({ setTabIds }) => {
         formData.append(key, value);
       }
     });
-    postWork({ work: formData, user_id: "659ec19b583e2d8d45bc5a5b" }).then(() =>
+    postWork({ work: formData, user_id: "659abb9680fc5376ed8930ac" }).then(() =>
       navigate("/user")
     );
   };
   return (
     <div
-      className={`w-full flex items-center ${
-        tabNumber == 1 ? "justify-end" : "justify-between"
-      }`}
+      className={`w-full flex items-center ${tabNumber == 1 ? "justify-end" : "justify-between"
+        }`}
     >
       {tabNumber != 1 && (
         <button

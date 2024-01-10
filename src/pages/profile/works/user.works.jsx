@@ -6,7 +6,7 @@ import { useGetWorksQuery } from "../../../redux/api/work";
 
 export const UserWorks = () => {
   const { data: works } = useGetWorksQuery({
-    user_id: "659e5fc98875ff89ed400d2a",
+    user_id: "659abb9680fc5376ed8930ac",
   });
   return (
     <React.Fragment>
@@ -15,7 +15,7 @@ export const UserWorks = () => {
         <Link to={"/create_work"} className="user_works_item">
           <p className="create_work">Создать ворк</p>
         </Link>
-        {works?.data?.results?.map((item) => (
+        {works?.data?.map((item) => (
           <li className="user_works_item2">
             <div>
               <img
