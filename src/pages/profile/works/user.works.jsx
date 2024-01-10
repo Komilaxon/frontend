@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import UserWork from "../../../assets/img/user-works.jpg";
 import { PaginationButton } from "../../../components/buttons/pagination.button";
 import "./user.works.css";
 import React from "react";
@@ -7,9 +6,8 @@ import { useGetWorksQuery } from "../../../redux/api/work";
 
 export const UserWorks = () => {
   const { data: works } = useGetWorksQuery({
-    user_id: "659e5fc98875ff89ed400d2a",
+    user_id: "659abb9680fc5376ed8930ac",
   });
-  console.log(works);
   return (
     <React.Fragment>
       <h3 className="user_works_title">Мой ворки</h3>
@@ -17,7 +15,7 @@ export const UserWorks = () => {
         <Link to={"/create_work"} className="user_works_item">
           <p className="create_work">Создать ворк</p>
         </Link>
-        {works?.data?.results?.map((item) => (
+        {works?.data?.map((item) => (
           <li className="user_works_item2">
             <div>
               <img
