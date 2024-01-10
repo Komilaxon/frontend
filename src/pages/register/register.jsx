@@ -29,7 +29,7 @@ export const Register = ({ token, setToken }) => {
         setToken(data.data.data);
       });
 
-      navigate("/login");
+      navigate("/user");
     } catch (error) {
       console.error(error.message);
     }

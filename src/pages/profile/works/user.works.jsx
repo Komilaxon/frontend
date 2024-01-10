@@ -6,7 +6,9 @@ import React from "react";
 import { useGetWorksQuery } from "../../../redux/api/work";
 
 export const UserWorks = () => {
-  const { data: works } = useGetWorksQuery({ user_id: "659abb9680fc5376ed8930ac" });
+  const { data: works } = useGetWorksQuery({
+    user_id: "659e5fc98875ff89ed400d2a",
+  });
   console.log(works);
   return (
     <React.Fragment>
@@ -15,18 +17,20 @@ export const UserWorks = () => {
         <Link to={"/create_work"} className="user_works_item">
           <p className="create_work">Создать ворк</p>
         </Link>
-        {
-          works?.data?.results.map(item => <li className="user_works_item2">
+        {works?.data?.results?.map((item) => (
+          <li className="user_works_item2">
             <div>
-              <img src={"http://localhost:4000/api/" + item.images[0]} alt="work_img" />
+              <img
+                src={"http://localhost:4000/api/" + item.images[0]}
+                alt="work_img"
+              />
             </div>
             <div className="user_work_text_box">
               <p className="user_work_title">{item.title}</p>
               <p className="user_work_price">{item.sum} тенге</p>
             </div>
-          </li>)
-        }
-
+          </li>
+        ))}
       </ul>
       <PaginationButton />
     </React.Fragment>
