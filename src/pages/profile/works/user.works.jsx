@@ -6,7 +6,7 @@ import { useGetWorksQuery } from "../../../redux/api/work";
 
 export const UserWorks = () => {
   const { data: works } = useGetWorksQuery({
-    user_id: "659abb9680fc5376ed8930ac",
+    user_id: "659ec19b583e2d8d45bc5a5b",
   });
   return (
     <React.Fragment>
